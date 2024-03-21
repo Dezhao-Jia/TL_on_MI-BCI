@@ -1,5 +1,5 @@
 import argparse
-from Process.process import Process
+from process import Process
 
 
 def get_args():
