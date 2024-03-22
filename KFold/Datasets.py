@@ -76,11 +76,11 @@ class LoadData:
             train_data, train_labels = raw_data[train_index], raw_labels[train_index]
             test_data, test_labels = raw_data[test_index], raw_labels[test_index]
             train_eeg = MyDataset(train_data, train_labels)
-            eval_eeg = MyDataset(test_data, test_labels)
+            test_eeg = MyDataset(test_data, test_labels)
 
             print('=' * 90)
             print('shape of train data :', train_data.shape, '\tshape of train labels :', train_labels.shape)
-            print('shape of eval data :', test_data.shape, '\tshape of eval labels :', test_labels.shape)
+            print('shape of test data :', test_data.shape, '\tshape of test labels :', test_labels.shape)
             print('=' * 90)
 
-            yield [train_eeg, eval_eeg]
+            yield [train_eeg, test_eeg]
