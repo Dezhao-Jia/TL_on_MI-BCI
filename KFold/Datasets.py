@@ -39,7 +39,7 @@ class LoadData:
         self.channels_to_remove = ['EOG-left', 'EOG-central', 'EOG-right']
 
     def get_train_data(self, window, baseline=None):
-        d_p = 'data/GDF/A0' + str(self.sub_id) + 'T.gdf'
+        d_p = '../data/GDF/A0' + str(self.sub_id) + 'T.gdf'
         raw_data = mne.io.read_raw_gdf(d_p, preload=True)
         events, events_id = mne.events_from_annotations(raw_data)
         stims = [value for key, value in events_id.items() if key in self.train_stimcodes]
@@ -54,7 +54,7 @@ class LoadData:
         return data
 
     def get_train_label(self):
-        l_p = 'data/Labels/A0' + str(self.sub_id) + 'T.mat'
+        l_p = '../data/Labels/A0' + str(self.sub_id) + 'T.mat'
         labels = loadmat(l_p).get('classlabel')
         labels = labels.reshape(-1) - 1
 
