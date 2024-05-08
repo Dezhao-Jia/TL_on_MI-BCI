@@ -15,6 +15,6 @@
   - data : 用于存放数据集及DataLoader、Datasets文件
   
 ## 环境依赖
-  - python ==
-  - mne ==
-  - torchvision ==
+  - python == 3.10.14
+  - mne == 1.7.0
+  - torchvision == 0.18.0
