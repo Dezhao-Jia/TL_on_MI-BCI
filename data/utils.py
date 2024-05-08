@@ -1,3 +1,4 @@
+import numpy as np
 from einops import rearrange
 from scipy.linalg import fractional_matrix_power
 
@@ -13,3 +14,23 @@ def EA(x):
     x_ = rearrange(x_, 'n h w -> n 1 h w')
 
     return x_
+
+def zero_score(data_array):
+    """
+    To normalize the input data by zero_score method.
+    data : ( n * c * l )
+    """
+    res = []
+    for data in data_array:
+        tmp = []
+        mean = np.mean(data, axis=-1)
+        std = np.std(data, axis=-1)
+
+        for i in range(len(data)):
+            tmp.append((data[i] - mean[i]) / std[i])
+        tmp = np.stack(tmp, axis=0)
+
+        res.append(tmp)
+    res = np.stack(res, axis=0)
+
+    return res
