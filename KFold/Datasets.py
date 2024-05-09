@@ -4,6 +4,7 @@ import numpy as np
 
 from scipy.io import loadmat
 from torch.utils.data import Dataset
+from data.utils import zero_score
 from data.DataSetsAugment import length_change
 from sklearn.model_selection import StratifiedKFold
 
@@ -49,6 +50,7 @@ class LoadData:
         epochs = epochs.drop_channels(self.channels_to_remove)
         data = epochs.get_data() * 1e6
         data = data[:, :, :-1]
+        data = zero_score(data)
         print('*' * 40, 'loading session 01 data over', '*' * 40)
 
         return data
