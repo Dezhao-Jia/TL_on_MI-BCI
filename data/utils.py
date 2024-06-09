@@ -3,6 +3,15 @@ from einops import rearrange
 from scipy.linalg import fractional_matrix_power
 
 def EA(x):
+    """
+    The Euclidean space alignment approach for EEG data from Wen chao Liu.
+
+    Arg:
+        x:The input data,shape of NxCxS
+
+    Return:
+        The aligned data.
+    """
     if len(x.shape) == 4:
         x = rearrange(x, 'n c h w -> (n c) h w')
     xt = np.transpose(x, axes=(0, 2, 1))
