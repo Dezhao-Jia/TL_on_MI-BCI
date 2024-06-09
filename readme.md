@@ -7,7 +7,6 @@
 
 ## 仓库结构
   - DAonSession : 领域自适应方法在跨Session运动想象识别任务上的研究
-  - DAonSub : 领域自适应方法在跨被试运动想象识别任务上的研究
   - DGonSession : 领域泛化方法在跨Session运动想象识别任务上的研究
   - DGonSub : 领域泛化方法在跨被试运动想象识别任务上的研究
   - KFold : 在单一Session数据上进行K折交叉验证实验，对模型性能进行验证
