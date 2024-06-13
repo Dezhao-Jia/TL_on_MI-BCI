@@ -28,9 +28,9 @@ class Muti_head_Classifier(nn.Module):
         return o1 + o2 + o3
 
 
-class DGSEB_FNN(nn.Module):
+class DGSEB_FNC(nn.Module):
     def __init__(self, in_chans, n_classes, n_filters_time=48, n_filters_spat=24, drop_prob=0.5):
-        super(DGSEB_FNN, self).__init__()
+        super(DGSEB_FCN, self).__init__()
         self.feat_mode = nn.Sequential(nn.Conv2d(1, n_filters_spat // 2, kernel_size=(1, 150), padding=(0, 150 // 2)),
                                        nn.Conv2d(n_filters_spat // 2, n_filters_spat, kernel_size=(in_chans, 1),
                                                  groups=2),
@@ -66,7 +66,7 @@ class DGSEB_FNN(nn.Module):
 
 if __name__ == '__main__':
     x = torch.rand(1, 1, 22, 1125)
-    mode = DGSEB_FNN(in_chans=22, n_classes=4)
+    mode = DGSEB_FCN(in_chans=22, n_classes=4)
     f, o1, o2 = mode(x)
 
     print(mode.b_mode.weight.shape, type(mode.b_mode.weight))
