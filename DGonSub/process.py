@@ -8,7 +8,7 @@ import torch.nn as nn
 
 from Datasets import LoadData
 from torch.utils.data import DataLoader
-from DGModels.FMSB_Models import SB_CNN
+from neural_nets.DGSEB_FCN import DGSEB_FNN
 from loss_funcs.matrix_orth import orth
 from loss_funcs.dynamic_center import CenterLoss, CenterDisc
 
@@ -32,7 +32,7 @@ class Process:
 
     def training(self):
         self.torch_seed()
-        net = SB_CNN(in_chans=22, n_classes=4).to(self.device)
+        net = DGSEB_FNN(in_chans=22, n_classes=4).to(self.device)
         optim = torch.optim.Adam(net.parameters(), lr=self.args.lr)
         src_iter = DataLoader(self.eeg_list[0], batch_size=self.args.batch_size, shuffle=True)
         tag_iter = DataLoader(self.eeg_list[-1], batch_size=self.args.batch_size, shuffle=False)
