@@ -11,6 +11,7 @@
   - DGonSub : 领域泛化方法在跨被试运动想象识别任务上的研究
   - KFold : 在单一Session数据上进行K折交叉验证实验，对模型性能进行验证
   - attention_models : 一些已经实现或改进的注意力机制方法
+  - loss_funcs : 实验中所用到的损失函数及其相关文件
   - data : 用于存放数据集及DataLoader、Datasets文件
   
 ## 环境依赖
